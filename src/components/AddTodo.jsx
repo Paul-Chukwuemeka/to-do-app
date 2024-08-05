@@ -14,23 +14,25 @@ const AddTodo = () => {
     if (input.length > 0) {
       setTodo([...todo, input]);
       setTag([...tag, tagInput]);
+      console.log(tag);
       console.log(todo);
     }
     setInput("");
+    setTagInput(" ");
   };
   const deleteTodo = (index) => {
     setTodo(todo.filter((todo, i) => i !== index));
   };
   return (
-    <div className="AddTodo">
+    <form className="AddTodo">
       <div className="app-input">
         <input
+          type="text"
           value={input}
           onChange={(e) => {
             setInput(e.target.value.toUpperCase());
           }}
           placeholder="Add Tasks"
-          type="text"
         />
       </div>
       <div className="label">
@@ -44,12 +46,12 @@ const AddTodo = () => {
           }}
         />
       </div>
-      <button className="add-task-btn" onClick={addTask}>
+      <button type="submit" className="add-task-btn" onClick={addTask}>
         {" "}
         Done
       </button>
-      <TaskList todos={todo} deleteTodo={deleteTodo} />
-    </div>
+      <TaskList todos={todo} tag={tag} deleteTodo={deleteTodo} />
+    </form>
   );
 };
 
