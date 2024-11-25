@@ -6,19 +6,26 @@ function App() {
     "Do 10 Jumping jacks",
     "Submit Assignment",
     "Cook meal",
-    "Feed the dragon"
+    "Feed the dragon",
   ]);
   const [newTask, setNewTask] = useState("");
   return (
     <>
       <div
         className="container bg-white h-fit p-8 rounded-xl
-       w-[500px]"
+       w-[450px]"
       >
         <h1 className="text-2xl font-semibold pt-0 pb-3 ">
           To-Do-List 📑{" "}
         </h1>
-        <div className=" form bg-gray-300  rounded-3xl">
+        <form
+          className=" form bg-gray-300  rounded-3xl"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setTasks([...tasks, newTask]);
+            setNewTask("");
+          }}
+        >
           <input
             type="text"
             placeholder="Add your task"
@@ -32,14 +39,10 @@ function App() {
           <button
             className="w-[30%] bg-[#ff4500] h-12 
           rounded-3xl "
-            onClick={() => {
-              setTasks([...tasks, newTask]);
-              setNewTask("");
-            }}
           >
             Add
           </button>
-        </div>
+        </form>
         {tasks.map((task) => {
           return (
             <div className="flex w-full justify-between px-3 mt-2 bg-gray-200 rounded-lg items-center">
