@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  padding: 0;
+  margin: 0;
+  /* box-sizing: border-box; */
+}
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    rgb(7, 7, 61),
+    purple
+  );
+}
+input:focus {
+  outline: none;
+  border: none;
+  /* color: ; */
+}
+button:focus {
+  outline: none;
+  border: none;
+}
+.check{
+  accent-color: #ff4500;
+}
